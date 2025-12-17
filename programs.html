@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs - CMA Carle Place After School Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background-color: #FEFEFE;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 70px;
+            background: #2E5C8A;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 2px 10px rgba(46, 92, 138, 0.2);
+        }
+
+        .logo {
+            color: #FEFEFE;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FEFEFE;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #F4A261;
+        }
+
+        .nav-links a.active {
+            background: #F4A261;
+            color: #2E5C8A;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2E5C8A 0%, #4A7FA7 100%);
+            color: #FEFEFE;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .programs-overview {
+            padding: 4rem 0;
+            background: #FEFEFE;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2E5C8A;
+            margin-bottom: 3rem;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .program-card {
+            background: #FEFEFE;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(46, 92, 138, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #E76F51;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(46, 92, 138, 0.2);
+        }
+
+        .program-card h3 {
+            color: #2E5C8A;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .program-card .age-group {
+            background: #F4A261;
+            color: #2E5C8A;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .program-features {
+            list-style: none;
+        }
+
+        .program-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #E76F51;
+            font-weight: bold;
+        }
+
+        .daily-schedule {
+            background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+            padding: 4rem 0;
+            color: #FEFEFE;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .time-block {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .time-block .time {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .time-block .activity {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .enrichment-programs {
+            padding: 4rem 0;
+            background: #FEFEFE;
+        }
+
+        .enrichment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .enrichment-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: linear-gradient(145deg, #FEFEFE, #F8F9FA);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .enrichment-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .enrichment-card .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2E5C8A, #4A7FA7);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #FEFEFE;
+        }
+
+        .enrichment-card h4 {
+            color: #2E5C8A;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2E5C8A 0%, #4A7FA7 100%);
+            color: #FEFEFE;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #F4A261;
+            color: #2E5C8A;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(244, 162, 97, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #E76F51;
+            color: #FEFEFE;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 111, 81, 0.4);
+        }
+
+        .footer {
+            background: #2C3E50;
+            color: #FEFEFE;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #FEFEFE;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #2E5C8A;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CMA Carle Place</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html" class="active">Our Programs</a></li>
+            <li><a href="schedule.html">Schedule & Pricing</a></li>
+            <li><a href="enrollment.html">Enrollment</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Our Programs</h1>
+            <p>Comprehensive after-school programming designed to enrich minds and build futures through academic support, creative exploration, and character development.</p>
+        </div>
+    </section>
+
+    <section class="programs-overview">
+        <div class="container">
+            <h2 class="section-title">Program Options</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <span class="age-group">Grades K-2</span>
+                    <h3>Little Explorers Program</h3>
+                    <p>Our youngest learners engage in hands-on activities that build foundational academic skills while fostering creativity and social development through structured play and exploration.</p>
+                    <ul class="program-features">
+                        <li>Homework assistance and reading support</li>
+                        <li>STEAM activities and experiments</li>
+                        <li>Arts and crafts projects</li>
+                        <li>Outdoor play and physical activities</li>
+                        <li>Character building lessons</li>
+                        <li>Healthy snack time</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <span class="age-group">Grades 3-5</span>
+                    <h3>Young Scholars Program</h3>
+                    <p>Elementary students receive targeted academic support while participating in enriching activities that challenge their minds and develop critical thinking skills.</p>
+                    <ul class="program-features">
+                        <li>Dedicated homework time with tutoring</li>
+                        <li>Advanced STEAM projects</li>
+                        <li>Creative writing workshops</li>
+                        <li>Team sports and fitness activities</li>
+                        <li>Leadership development opportunities</li>
+                        <li>Community service projects</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <span class="age-group">Grades 6-8</span>
+                    <h3>Future Leaders Program</h3>
+                    <p>Middle school students receive comprehensive academic support while developing leadership skills and exploring their interests through specialized enrichment activities.</p>
+                    <ul class="program-features">
+                        <li>Subject-specific tutoring support</li>
+                        <li>College and career exploration</li>
+                        <li>Technology and coding workshops</li>
+                        <li>Student government participation</li>
+                        <li>Peer mentoring opportunities</li>
+                        <li>High school preparation activities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="daily-schedule">
+        <div class="container">
+            <h2 class="section-title">Daily Schedule</h2>
+            <div class="schedule-grid">
+                <div class="time-block">
+                    <div class="time">3:00 - 3:30 PM</div>
+                    <div class="activity">Arrival & Snack Time</div>
+                </div>
+                <div class="time-block">
+                    <div class="time">3:30 - 4:30 PM</div>
+                    <div class="activity">Homework & Academic Support</div>
+                </div>
+                <div class="time-block">
+                    <div class="time">4:30 - 5:30 PM</div>
+                    <div class="activity">Enrichment Activities</div>
+                </div>
+                <div class="time-block">
+                    <div class="time">5:30 - 6:00 PM</div>
+                    <div class="activity">Free Play & Pickup</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="enrichment-programs">
+        <div class="container">
+            <h2 class="section-title">Enrichment Activities</h2>
+            <div class="enrichment-grid">
+                <div class="enrichment-card">
+                    <div class="icon">🎨</div>
+                    <h4>Creative Arts</h4>
+                    <p>Drawing, painting, sculpture, and mixed media projects that encourage artistic expression and creativity.</p>
+                </div>
+
+                <div class="enrichment-card">
+                    <div class="icon">🔬</div>
+                    <h4>STEAM Labs</h4>
+                    <p>Science experiments, engineering challenges, and technology projects that make learning fun and engaging.</p>
+                </div>
+
+                <div class="enrichment-card">
+                    <div class="icon">📚</div>
+                    <h4>Reading Club</h4>
+                    <p>Book discussions, creative writing, and storytelling activities that develop literacy and communication skills.</p>
+                </div>
+
+                <div class="enrichment-card">
+                    <div class="icon">🏃</div>
+                    <h4>Sports & Fitness</h4>
+                    <p>Team sports, individual fitness activities, and outdoor adventures that promote physical health and teamwork.</p>
+                </div>
+
+                <div class="enrichment-card">
+                    <div class="icon">🎵</div>
+                    <h4>Music & Drama</h4>
+                    <p>Musical instruction, choir, and theatrical performances that build confidence and creative expression.</p>
+                </div>
+
+                <div class="enrichment-card">
+                    <div class="icon">🌱</div>
+                    <h4>Life Skills</h4>
+                    <p>Cooking, gardening, financial literacy, and other practical skills that prepare students for future success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Enroll?</h2>
+            <p>Give your child the gift of comprehensive after-school care and enrichment</p>
+            <a href="enrollment.html" class="btn-primary">Start Enrollment Process</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 CMA Carle Place After School Program. All rights reserved. Enriching minds, building futures after school.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

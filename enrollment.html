@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment - CMA Carle Place After School Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background-color: #FEFEFE;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(135deg, #2E5C8A 0%, #1E3A5F 100%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(46, 92, 138, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FEFEFE;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FEFEFE;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #F4A261;
+            color: #2E5C8A;
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2E5C8A 0%, #F4A261 100%);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .enrollment-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .enrollment-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .enrollment-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(46, 92, 138, 0.1);
+            border: 1px solid rgba(46, 92, 138, 0.1);
+        }
+
+        .form-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2E5C8A;
+            box-shadow: 0 0 0 3px rgba(46, 92, 138, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.25rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2E5C8A 0%, #F4A261 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(46, 92, 138, 0.3);
+        }
+
+        .enrollment-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(46, 92, 138, 0.08);
+            border: 1px solid rgba(46, 92, 138, 0.1);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin-bottom: 1rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            font-weight: 600;
+            color: #E76F51;
+        }
+
+        .requirements-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .requirements-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .requirements-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .requirement-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(46, 92, 138, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .requirement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(46, 92, 138, 0.15);
+        }
+
+        .requirement-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2E5C8A 0%, #F4A261 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .requirement-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin-bottom: 1rem;
+        }
+
+        .steps-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .steps-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(46, 92, 138, 0.08);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #E76F51 0%, #F4A261 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin: 1rem 0;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2E5C8A 0%, #1E3A5F 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #F4A261;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .enrollment-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CMA Carle Place</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="schedule.html">Schedule & Pricing</a></li>
+            <li><a href="enrollment.html" class="active">Enrollment</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Enrollment</h1>
+            <p>Join our community and give your child the advantage they deserve</p>
+        </div>
+    </section>
+
+    <div class="enrollment-container">
+        <div class="enrollment-grid">
+            <div class="enrollment-form">
+                <h2 class="form-title">Student Registration Form</h2>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birthDate">Date of Birth *</label>
+                            <input type="date" id="birthDate" name="birthDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Current Grade *</label>
+                            <select id="grade" name="grade" required>
+                                <option value="">Select Grade</option>
+                                <option value="K">Kindergarten</option>
+                                <option value="1">1st Grade</option>
+                                <option value="2">2nd Grade</option>
+                                <option value="3">3rd Grade</option>
+                                <option value="4">4th Grade</option>
+                                <option value="5">5th Grade</option>
+                                <option value="6">6th Grade</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="school">Current School *</label>
+                        <input type="text" id="school" name="school" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentName">Parent/Guardian Name *</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="relationship">Relationship *</label>
+                            <select id="relationship" name="relationship" required>
+                                <option value="">Select Relationship</option>
+                                <option value="mother">Mother</option>
+                                <option value="father">Father</option>
+                                <option value="guardian">Guardian</option>
+                                <option value="grandparent">Grandparent</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Home Address *</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="program">Preferred Program *</label>
+                        <select id="program" name="program" required>
+                            <option value="">Select Program</option>
+                            <option value="homework-help">Homework Help & Tutoring</option>
+                            <option value="stem">STEM Activities</option>
+                            <option value="arts-crafts">Arts & Crafts</option>
+                            <option value="sports">Sports & Recreation</option>
+                            <option value="music">Music Lessons</option>
+                            <option value="full-program">Full Program Package</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="schedule">Preferred Schedule *</label>
+                        <select id="schedule" name="schedule" required>
+                            <option value="">Select Schedule</option>
+                            <option value="mon-fri">Monday - Friday (Full Week)</option>
+                            <option value="mon-wed-fri">Monday, Wednesday, Friday</option>
+                            <option value="tue-thu">Tuesday, Thursday</option>
+                            <option value="flexible">Flexible Schedule</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="allergies">Allergies or Medical Conditions</label>
+                        <textarea id="allergies" name="allergies" placeholder="Please list any allergies, medical conditions, or special needs we should be aware of..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emergency">Emergency Contact</label>
+                        <input type="text" id="emergency" name="emergency" placeholder="Name and phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the terms and conditions and authorize CMA Carle Place After School Program to provide care for my child. I understand the program policies and fee structure.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Enrollment</button>
+                </form>
+            </div>
+
+            <div class="enrollment-info">
+                <div class="info-card">
+                    <h3>Program Pricing</h3>
+                    <ul>
+                        <li>Full Week (Mon-Fri) <span class="price">$280/month</span></li>
+                        <li>3 Days/Week <span class="price">$210/month</span></li>
+                        <li>2 Days/Week <span class="price">$160/month</span></li>
+                        <li>Single Day Drop-in <span class="price">$25/day</span></li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>What's Included</h3>
+                    <ul>
+                        <li>✓ Homework assistance</li>
+                        <li>✓ Healthy snacks</li>
+                        <li>✓ Educational activities</li>
+                        <li>✓ Arts & crafts supplies</li>
+                        <li>✓ Outdoor playtime</li>
+                        <li>✓ Progress reports</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>Contact Information</h3>
+                    <p><strong>Phone:</strong> (516) 742-3422</p>
+                    <p><strong>Email:</strong> info@cmacarleplace.com</p>
+                    <p><strong>Address:</strong> 234 Westbury Ave, Carle Place, NY 11514</p>
+                    <p><strong>Hours:</strong> Monday - Friday, 2:30 PM - 6:30 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="requirements-section">
+        <div class="requirements-content">
+            <h2 class="requirements-title">Enrollment Requirements</h2>
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="requirement-icon">📋</div>
+                    <h4>Registration Form</h4>
+                    <p>Complete application with all required information including emergency contacts and medical details.</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="requirement-icon">💉</div>
+                    <h4>Health Records</h4>
+                    <p>Current immunization records and any medical information we need to ensure your child's safety.</p>
+                </div>
+                <div class="requirement-card">
+                    <div class="requirement-icon">💳</div>
+                    <h4>Registration Fee</h4>
+                    <p>One-time registration fee of $50 due upon enrollment. Monthly tuition payments begin after acceptance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps-section">
+        <h2 class="steps-title">Enrollment Process</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Submit Application</h4>
+                <p>Complete and submit the enrollment form above with all required information.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Schedule Visit</h4>
+                <p>We'll contact you within 24 hours to schedule a facility tour and meet our staff.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>Complete Paperwork</h4>
+                <p>Finalize enrollment with health records, emergency contacts, and registration fee.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>Start Date</h4>
+                <p>Your child begins their journey with us! We'll ensure a smooth transition and orientation.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>CMA Carle Place After School Program</h3>
+            <p>Enriching minds, building futures after school</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="programs.html">Programs</a>
+                <a href="schedule.html">Schedule</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2024 CMA Carle Place After School Program. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

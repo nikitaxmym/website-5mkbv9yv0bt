@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CMA Carle Place After School Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background-color: #FEFEFE;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #2E5C8A;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FEFEFE;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FEFEFE;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #F4A261;
+            background-color: rgba(244, 162, 97, 0.1);
+        }
+
+        .nav-links a.active {
+            background-color: #F4A261;
+            color: #2E5C8A;
+            font-weight: 600;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2E5C8A 0%, #3D6F9A 100%);
+            color: #FEFEFE;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #F4A261;
+            font-style: italic;
+        }
+
+        .main-content {
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mission-card, .vision-card {
+            background: linear-gradient(145deg, #FEFEFE 0%, #F8F9FA 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(46, 92, 138, 0.1);
+            border-left: 5px solid #F4A261;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(46, 92, 138, 0.15);
+        }
+
+        .mission-card h3, .vision-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mission-card h3::before {
+            content: "🎯";
+            font-size: 1.5rem;
+        }
+
+        .vision-card h3::before {
+            content: "🌟";
+            font-size: 1.5rem;
+        }
+
+        .team-section {
+            background: linear-gradient(135deg, #F8F9FA 0%, #FEFEFE 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: #FEFEFE;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(46, 92, 138, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(46, 92, 138, 0.15);
+            border-color: #F4A261;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .team-member h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .role {
+            color: #E76F51;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .values-section {
+            background: linear-gradient(135deg, #2E5C8A 0%, #3D6F9A 100%);
+            color: #FEFEFE;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover {
+            transform: scale(1.05);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .value-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #F4A261;
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, #FEFEFE 0%, #F8F9FA 100%);
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(46, 92, 138, 0.1);
+            border-top: 4px solid #E76F51;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2E5C8A;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background: #2C3E50;
+            color: #FEFEFE;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: #FEFEFE;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .values-section {
+                padding: 3rem 1rem;
+            }
+
+            .team-section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CMA Carle Place</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="schedule.html">Schedule & Pricing</a></li>
+            <li><a href="enrollment.html">Enrollment</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-menu">☰</button>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>About CMA Carle Place</h1>
+            <p>Dedicated to providing exceptional after-school care and enrichment for over a decade</p>
+            <div class="tagline">Enriching minds, building futures after school</div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="mission-vision">
+                <div class="mission-card">
+                    <h3>Our Mission</h3>
+                    <p>To provide a safe, nurturing, and stimulating environment where children can grow academically, socially, and emotionally. We are committed to supporting working families by offering high-quality after-school care that extends learning beyond the classroom while fostering creativity, independence, and strong character values.</p>
+                </div>
+                <div class="vision-card">
+                    <h3>Our Vision</h3>
+                    <p>To be the premier after-school program in Carle Place, recognized for our innovative approach to child development, our commitment to excellence, and our positive impact on the community. We envision a future where every child in our care develops the confidence, skills, and values needed to succeed in school and life.</p>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Children Served</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Parent Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Program Activities</div>
+                </div>
+            </section>
+
+            <section class="team-section">
+                <div class="section-title">Meet Our Dedicated Team</div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-member img">👩‍🏫</div>
+                        <h4>Sarah Martinez</h4>
+                        <div class="role">Program Director</div>
+                        <p>M.Ed. in Elementary Education with 15+ years of experience in child development and after-school programming. Sarah leads our team with passion and expertise.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member img">👨‍🎨</div>
+                        <h4>Michael Chen</h4>
+                        <div class="role">Activities Coordinator</div>
+                        <p>B.A. in Recreation Therapy, specializing in creative arts and STEAM education. Michael designs engaging activities that spark curiosity and learning.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member img">👩‍💼</div>
+                        <h4>Jennifer Rodriguez</h4>
+                        <div class="role">Academic Support Specialist</div>
+                        <p>Former elementary school teacher with expertise in homework assistance and individualized learning support for students of all levels.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member img">👨‍🏃</div>
+                        <h4>David Thompson</h4>
+                        <div class="role">Physical Education Instructor</div>
+                        <p>Certified in youth fitness and sports coaching, David promotes physical wellness and teamwork through engaging recreational activities.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="values-section">
+                <div class="container">
+                    <h2 class="section-title" style="color: #F4A261;">Our Core Values</h2>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <span class="value-icon">🛡️</span>
+                            <h4>Safety First</h4>
+                            <p>Creating a secure environment where children feel protected and parents have peace of mind.</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🌱</span>
+                            <h4>Growth Mindset</h4>
+                            <p>Encouraging curiosity, resilience, and continuous learning in every child we serve.</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🤝</span>
+                            <h4>Community</h4>
+                            <p>Building strong relationships among children, families, and staff to create a supportive network.</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">⭐</span>
+                            <h4>Excellence</h4>
+                            <p>Maintaining the highest standards in programming, staff training, and child care services.</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🎨</span>
+                            <h4>Creativity</h4>
+                            <p>Fostering imagination and innovation through diverse activities and self-expression opportunities.</p>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-icon">🌍</span>
+                            <h4>Inclusivity</h4>
+                            <p>Welcoming children from all backgrounds and celebrating diversity in our program community.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Our Story</h2>
+                <div style="background: linear-gradient(145deg, #FEFEFE 0%, #F8F9FA 100%); padding: 3rem; border-radius: 20px; box-shadow: 0 8px 25px rgba(46, 92, 138, 0.1);">
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                        CMA Carle Place After School Program was founded in 2011 with a simple yet powerful mission: to provide exceptional after-school care that goes beyond supervision. Our founder, recognizing the need for quality programming in the Carle Place community, established our program with a focus on academic support, character development, and creative enrichment.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                        Over the years, we have grown from serving a small group of students to becoming a cornerstone of the community, supporting over 150 families annually. Our success is built on strong partnerships with local schools, dedicated staff members, and the trust of families who choose us to care for their most precious gifts.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Today, we continue to evolve and adapt our programs to meet the changing needs of students and families, always maintaining our commitment to excellence, safety, and the individual growth of every child in our care. We look forward to many more years of serving the Carle Place community and watching our students thrive.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 CMA Carle Place After School Program. All rights reserved. | Enriching minds, building futures after school</p>
+        </div>
+    </footer>
+</body>
+</html>

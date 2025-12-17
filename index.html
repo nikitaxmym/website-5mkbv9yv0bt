@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMA Carle Place After School Program - Enriching minds, building futures after school</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background-color: #FEFEFE;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: #2E5C8A;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(46, 92, 138, 0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FEFEFE;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FEFEFE;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a.active {
+            color: #F4A261;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #F4A261;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #F4A261;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2E5C8A 0%, #F4A261 100%);
+            color: #FEFEFE;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #E76F51;
+            color: #FEFEFE;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #d85a3f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 111, 81, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2E5C8A;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #FEFEFE;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(46, 92, 138, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(244, 162, 97, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(46, 92, 138, 0.2);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #F4A261, #E76F51);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: #FEFEFE;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2E5C8A;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            line-height: 1.7;
+            color: #2C3E50;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+            color: #FEFEFE;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .programs-preview {
+            background: #f8f9fa;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: #FEFEFE;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(46, 92, 138, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(46, 92, 138, 0.2);
+        }
+
+        .program-header {
+            background: #2E5C8A;
+            color: #FEFEFE;
+            padding: 1.5rem;
+        }
+
+        .program-header h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-header .age-group {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #E76F51;
+            font-weight: bold;
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            background: #F4A261;
+            color: #2C3E50;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-btn:hover {
+            background: #e19449;
+            transform: translateY(-1px);
+        }
+
+        .footer {
+            background: #2C3E50;
+            color: #FEFEFE;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #FEFEFE;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CMA Carle Place</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="schedule.html">Schedule & Pricing</a></li>
+            <li><a href="enrollment.html">Enrollment</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CMA Carle Place After School Program</h1>
+            <p class="tagline">Enriching minds, building futures after school</p>
+            <a href="enrollment.html" class="cta-button">Enroll Your Child Today</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our After School Program?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Academic Excellence</h3>
+                    <p>Our certified educators provide personalized homework assistance and tutoring across all subjects, ensuring your child maintains strong academic performance while developing independent study skills.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Creative Activities</h3>
+                    <p>From art and music to drama and creative writing, our diverse enrichment programs foster creativity, self-expression, and critical thinking in a supportive environment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚽</div>
+                    <h3>Physical Fitness</h3>
+                    <p>Daily physical activities, sports, and outdoor play promote healthy lifestyle habits while developing teamwork skills, coordination, and physical confidence.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Social Development</h3>
+                    <p>Through group activities, collaborative projects, and structured play, children develop essential social skills, empathy, and lasting friendships in a nurturing community.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>STEM Learning</h3>
+                    <p>Hands-on science experiments, coding workshops, and math games make learning exciting while preparing students for future academic and career success in technology fields.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Professional Care</h3>
+                    <p>Our experienced, background-checked staff provide reliable, professional childcare with low student-to-staff ratios ensuring personalized attention and safety for every child.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section stats-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact in Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Students Served</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15</h3>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Parent Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>Activities Offered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section programs-preview">
+        <div class="container">
+            <h2 class="section-title">Our Program Offerings</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Elementary Explorers</h3>
+                        <p class="age-group">Kindergarten - 2nd Grade</p>
+                    </div>
+                    <div class="program-content">
+                        <p>A nurturing environment designed for our youngest learners, focusing on foundational skills through play-based learning and structured activities.</p>
+                        <ul class="program-features">
+                            <li>Homework assistance and reading support</li>
+                            <li>Arts and crafts projects</li>
+                            <li>Outdoor playground time</li>
+                            <li>Basic STEM activities</li>
+                            <li>Character development lessons</li>
+                        </ul>
+                        <a href="programs.html" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Middle Grade Achievers</h3>
+                        <p class="age-group">3rd - 5th Grade</p>
+                    </div>
+                    <div class="program-content">
+                        <p>Building independence and academic confidence through challenging projects, collaborative learning, and leadership opportunities.</p>
+                        <ul class="program-features">
+                            <li>Subject-specific tutoring</li>
+                            <li>Science experiments and projects</li>
+                            <li>Team sports and fitness activities</li>
+                            <li>Technology and coding introduction</li>
+                            <li>Community service projects</li>
+                        </ul>
+                        <a href="programs.html" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Teen Leadership Academy</h3>
+                        <p class="age-group">6th - 8th Grade</p>
+                    </div>
+                    <div class="program-content">
+                        <p>Preparing middle school students for high school success through advanced academics, leadership training, and career exploration.</p>
+                        <ul class="program-features">
+                            <li>Advanced homework and test prep</li>
+                            <li>Leadership skill development</li>
+                            <li>Career exploration workshops</li>
+                            <li>Peer mentoring opportunities</li>
+                            <li>High school preparation</li>
+                        </ul>
+                        <a href="programs.html" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 CMA Carle Place After School Program. All rights reserved. Enriching minds, building futures after school.</p>
+        </div>
+    </footer>
+</body>
+</html>

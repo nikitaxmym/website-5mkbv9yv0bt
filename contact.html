@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - CMA Carle Place After School Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background-color: #FEFEFE;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: linear-gradient(135deg, #2E5C8A 0%, #1a4268 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(46, 92, 138, 0.3);
+        }
+
+        .logo {
+            color: #FEFEFE;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FEFEFE;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #F4A261;
+            color: #2C3E50;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2E5C8A 0%, #F4A261 100%);
+            color: #FEFEFE;
+            text-align: center;
+            padding: 6rem 1rem 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .contact-section {
+            padding: 4rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            background: #FEFEFE;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(46, 92, 138, 0.1);
+        }
+
+        .contact-info h3 {
+            color: #2E5C8A;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+            border-radius: 10px;
+            color: #FEFEFE;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
+            fill: #FEFEFE;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: #FEFEFE;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(46, 92, 138, 0.1);
+        }
+
+        .contact-form h3 {
+            color: #2E5C8A;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2C3E50;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2E5C8A;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2E5C8A 0%, #F4A261 100%);
+            color: #FEFEFE;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 92, 138, 0.3);
+        }
+
+        .hours-section {
+            background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+            color: #FEFEFE;
+            padding: 4rem 0;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hours-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .hours-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .location-section {
+            padding: 4rem 0;
+            background: #FEFEFE;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(46, 92, 138, 0.1);
+            height: 400px;
+            background: linear-gradient(135deg, #2E5C8A 0%, #F4A261 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FEFEFE;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #2E5C8A;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #2C3E50;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2C3E50 0%, #2E5C8A 100%);
+            color: #FEFEFE;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem 3rem;
+            }
+
+            .contact-section,
+            .hours-section,
+            .location-section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">CMA Carle Place</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Our Programs</a></li>
+            <li><a href="schedule.html">Schedule & Pricing</a></li>
+            <li><a href="enrollment.html">Enrollment</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Ready to enrich your child's future? Get in touch with our team today.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">We're here to answer your questions and help you find the perfect program for your child</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <div>
+                            <strong>Phone</strong><br>
+                            (516) 333-6260
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <div>
+                            <strong>Email</strong><br>
+                            info@cmacarleplace.com
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <div>
+                            <strong>Address</strong><br>
+                            168 Cherry Lane<br>
+                            Carle Place, NY 11514
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <div>
+                            <strong>Ages Served</strong><br>
+                            K-8th Grade Students
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="child-grade">Child's Grade Level</label>
+                            <select id="child-grade" name="child-grade">
+                                <option value="">Select Grade</option>
+                                <option value="kindergarten">Kindergarten</option>
+                                <option value="1st">1st Grade</option>
+                                <option value="2nd">2nd Grade</option>
+                                <option value="3rd">3rd Grade</option>
+                                <option value="4th">4th Grade</option>
+                                <option value="5th">5th Grade</option>
+                                <option value="6th">6th Grade</option>
+                                <option value="7th">7th Grade</option>
+                                <option value="8th">8th Grade</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select Topic</option>
+                                <option value="enrollment">Enrollment Information</option>
+                                <option value="programs">Program Details</option>
+                                <option value="schedule">Schedule & Pricing</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us how we can help you and your child..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hours-section">
+        <div class="container">
+            <h2 class="section-title" style="color: #FEFEFE;">Program Hours</h2>
+            <p class="section-subtitle" style="color: #FEFEFE; opacity: 0.9;">We're here when your family needs us most</p>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>School Days</h3>
+                    <p><strong>Monday - Friday</strong></p>
+                    <p>2:30 PM - 6:30 PM</p>
+                    <p style="margin-top: 1rem; opacity: 0.8;">After school pickup available</p>
+                </div>
+
+                <div class="hours-card">
+                    <h3>School Holidays</h3>
+                    <p><strong>Most School Holidays</strong></p>
+                    <p>7:30 AM - 6:30 PM</p>
+                    <p style="margin-top: 1rem; opacity: 0.8;">Full day programs available</p>
+                </div>
+
+                <div class="hours-card">
+                    <h3>Summer Program</h3>
+                    <p><strong>June - August</strong></p>
+                    <p>7:30 AM - 6:30 PM</p>
+                    <p style="margin-top: 1rem; opacity: 0.8;">Special summer activities</p>
+                </div>
+
+                <div class="hours-card">
+                    <h3>Office Hours</h3>
+                    <p><strong>Monday - Friday</strong></p>
+                    <p>9:00 AM - 5:00 PM</p>
+                    <p style="margin-top: 1rem; opacity: 0.8;">For enrollment & questions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location-section">
+        <div class="container">
+            <h2 class="section-title">Visit Our Location</h2>
+            <p class="section-subtitle">Conveniently located in the heart of Carle Place with easy pickup and drop-off</p>
+            
+            <div class="map-container">
+                <p>Interactive Map Coming Soon<br>168 Cherry Lane, Carle Place, NY 11514</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 CMA Carle Place After School Program. All rights reserved.</p>
+            <p>Enriching minds, building futures after school</p>
+        </div>
+    </footer>
+</body>
+</html>
